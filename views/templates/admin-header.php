@@ -1,6 +1,6 @@
 <header class="dashboard__header">
     <div class="dashboard__header--grid">
-        <a href="">
+        <a href="/">
             <h2 class="dashboard_logo">
                 &#60;DevWebCamp/>
             </h2>
