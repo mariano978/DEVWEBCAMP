@@ -1,0 +1,52 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.horas {
+  @include m.reset-lista;
+  @include m.grid(1, 1rem);
+  @include m.tablet {
+    @include m.grid(2, 1rem);
+  }
+
+  &__hora {
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: v.$cuaternario;
+    font-weight: bold;
+    transition: 0.3s all ease;
+    border: 1px solid v.$cuaternario;
+    &:hover,
+    :not(.horas__hora--deshabiltada) {
+      @include m.textoNeon(v.$negro, 2px);
+      letter-spacing: 3px;
+      transform: scale(1.05);
+      color: v.$negro;
+      background-color: v.$cuaternario;
+      cursor: pointer;
+    }
+
+    &--seleccionada {
+      @extend .horas__hora;
+      background-color: v.$cuaternario;
+      color: v.$negro;
+      @include m.textoNeon(v.$negro, 2px);
+      @include m.bordeNeon(v.$blanco, v.$cuaternario);
+    }
+
+    &--deshabilitada {
+      @extend .horas__hora;
+      border: 1px solid darken(v.$blanco, 50%);
+      color: darken(v.$blanco, 50%);
+
+      &:hover {
+        text-shadow: unset;
+        letter-spacing: unset;
+        transform: unset;
+        color: darken(v.$blanco, 50%);
+        background-color: unset;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

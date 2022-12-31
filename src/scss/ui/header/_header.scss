@@ -1,0 +1,74 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.header {
+  min-height: 30rem;
+  background-image: url(../img/grafico.svg), url(../img/grafico.svg),
+    linear-gradient(to right, rgba(v.$fondo, 1), rgba(v.$fondo, 0.5)),
+    image-set(
+      url(../img/header.avif) 1x,
+      url(../img/header.webp) 1x,
+      url(../img/header.jpg) 1x
+    );
+  //image set elige que imagen es la mas optima para mostrar
+  background-repeat: no-repeat;
+
+  //aqui mapeamos las imagenes que subimos, esto se aplicará
+  //en el mismo orden que la subimos
+  //por ej. en este caso los graficos.svg mediran 35rem cada uno
+  background-size: 35rem, 35rem, cover, cover;
+
+  background-position: top left, bottom right, center, center;
+
+  &__contenedor {
+    @include m.contenedor;
+  }
+
+  &__navegacion {
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    @include m.tablet {
+      justify-content: flex-end;
+    }
+  }
+  &__enlace {
+    @include m.enlace;
+  }
+
+  &__contenido {
+    padding-bottom: 3rem;
+  }
+
+  &__logo {
+    text-align: center;
+    @include m.textoFluido(1rem, 7rem);
+    @include m.textoDegradado(v.$cuaternario, lighten(v.$secundario, 15%));
+    @include m.tablet {
+      text-align: left;
+      display: inline-block;
+    }
+  }
+
+  &__texto {
+    font-size: 2.5rem;
+    font-weight: v.$bold;
+    color: v.$blanco;
+    text-align: center;
+    @include m.tablet {
+      text-align: left;
+    }
+    &--modalidad {
+      font-size: 2rem;
+    }
+  }
+
+  &__boton {
+    @include m.boton(v.$primario, v.$blanco);
+
+    @include m.tablet {
+      width: auto;
+    }
+  }
+}

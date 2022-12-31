@@ -1,0 +1,8 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.menu-redes {
+  text-align: end;
+  margin: 4rem 0;
+  @include m.menu-social(v.$blanco, 2.5rem);
+}

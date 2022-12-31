@@ -1,0 +1,23 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+.alerta{
+    padding: 1rem;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: v.$bold;
+    border-radius: .5rem;
+    text-align: center;
+    color: v.$blanco;
+    letter-spacing: 1px;
+    @include m.textoNeon(v.$blanco,2px);
+
+    &--error{
+        background-color: v.$rojo;
+        @include m.bordeNeon(red,v.$rojo);
+    }
+    &--exito{
+        background-color: v.$verde2;
+        @include m.bordeNeon(v.$verde,v.$verde2);
+    }
+}

@@ -1,0 +1,81 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.table {
+  margin-top: 3rem;
+  width: 100%;
+  border-collapse: collapse;
+  &__thead {
+    background-color: v.$secundario;
+    color: v.$blanco;
+    width: 100%;
+  }
+  &__th {
+    padding: 1rem;
+    text-align: left;
+    @include m.textoNeon(v.$blanco, 2px);
+    font-size: 1.9rem;
+
+    &:first-child {
+      border-top-left-radius: 0.5rem;
+    }
+    &:last-child {
+      @include m.desktop {
+        width: 30rem;
+      }
+      width: auto;
+      text-align: center;
+      padding-right: 2rem;
+      border-top-right-radius: 0.5rem;
+    }
+  }
+  &__td {
+    color: v.$blanco;
+    text-align: left;
+    padding-left: 1rem;
+    &--acciones {
+      padding: 1rem;
+
+      @include m.gridRow(2, 1rem);
+      align-items: center;
+      @include m.desktop {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+  &__tr {
+    border-bottom: 2px solid v.$secundario;
+    &:nth-child(odd) {
+      background-color: lighten(v.$fondo, 5);
+    }
+  }
+
+  &__accion {
+    text-transform: uppercase;
+    font-weight: bold;
+    all: unset;
+    color: v.$blanco;
+
+    &--editar {
+      @include m.boton(v.$primario, v.$blanco);
+    }
+
+    &--eliminar {
+      &-form {
+        margin: 0;
+        display: contents;
+      }
+      @include m.boton(v.$rojo, v.$blanco);
+    }
+
+    &--eliminar,
+    &--editar {
+      width: auto;
+
+      @include m.desktop {
+        width: 100%;
+      }
+    }
+  }
+}
