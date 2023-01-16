@@ -55,3 +55,10 @@ function is_admin(): bool
     }
     return isset($_SESSION['admin']) && !empty($_SESSION['admin']);
 }
+
+function aos_animacion(): void
+{
+    $efectos = ["up", "right", "left", "down", "up-right", "up-left", "down-right", "down-left"];
+
+    echo "data-aos=fade-" . $efectos[array_rand($efectos, 1)];
+}

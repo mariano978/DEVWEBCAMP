@@ -1,0 +1,34 @@
+.mapa {
+  margin-top: 3rem;
+  height: 45rem;
+
+  &__heading {
+    text-align: center;
+    margin: 0;
+    font-size: 2rem;
+    color: black;
+  }
+
+  &__coord {
+    margin: .5rem 0 !important;
+    font-size: 1.5rem;
+    color: gray;
+    text-align: center;
+  }
+
+  &__texto {
+    
+    text-align: center;
+    margin: .5rem !important;
+    color: gray;
+    font-size: 1.7rem;
+  }
+
+  &__google-icon{
+    display:block;
+    margin:auto;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+  }
+}

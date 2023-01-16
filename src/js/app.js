@@ -3,6 +3,8 @@ import "./ponentes.js";
 import "./admin.js";
 import "./formulario.js";
 import "./navegacion.js";
-import "./tilt.js";
 import "./tags.js";
-import "./slider.js"
+import "./slider.js";
+import "./tilt.js"; 
+import "./snik.js";
+import "./mapa.js";

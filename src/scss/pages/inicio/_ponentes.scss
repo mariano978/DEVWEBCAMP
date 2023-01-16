@@ -1,0 +1,88 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.speakers {
+  &__grid {
+    @include m.contenedor;
+    @include m.grid(1, 5rem);
+
+    @include m.tablet {
+      @include m.grid(2, 5rem);
+    }
+
+    @include m.desktop {
+      @include m.grid(3, 5rem);
+    }
+  }
+}
+
+.speaker {
+  background-position: center top;
+  background-size: 35rem;
+  background-repeat: no-repeat;
+
+  @for $i from 1 through 4 {
+    &:nth-child(4n + #{$i}) {
+      background-image: image-set(
+        url("../img/bg_#{$i}.avif") 1x,
+        url("../img/bg_#{$i}.webp") 1x,
+        url("../img/bg_#{$i}.png") 1x
+      );
+    }
+  }
+
+  transform-style: preserve-3d;
+  @include m.card(#121212);
+  border: v.$gris 1px solid;
+
+  &:hover {
+    @include m.bordeNeon(v.$gris, v.$primario);
+  }
+
+  &__imagen {
+    min-width: 10rem;
+    @include m.tablet{
+      min-width: unset;
+    }
+  }
+
+  &__informacion {
+    transform-style: preserve-3d;
+  }
+
+  &__nombre {
+    margin: 1rem 0;
+    font-size: 4rem;
+    font-weight: bold;
+    color: v.$blanco;
+    transition: transform 0.3s ease;
+    text-align: center;
+    transform: translateZ(30px) translateX(-20px);
+  }
+
+  $modificador: &;
+  &:hover #{$modificador}__nombre {
+    transform: translateZ(30px) translateX(0px);
+  }
+
+  &__ubicacion {
+    color: v.$gris;
+    margin: 1rem 0;
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+
+  //tags
+  &__listado-skills {
+    @include m.tags;
+  }
+}
+
+//redes sociales
+.speaker-sociales {
+  @include m.menu-social(v.$primario, 2rem);
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  transform: translateZ(30px);
+}
