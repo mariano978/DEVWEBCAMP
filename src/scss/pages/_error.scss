@@ -1,0 +1,23 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.pagina_404{
+
+    &__heading{
+        font-size: 3rem;
+    }
+
+    &__enlace{
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        color: v.$cuaternario;
+        cursor: pointer;
+        font-size: 3rem;
+        transition: all .4s ease;
+
+        &:hover{
+            @include m.textoNeon(v.$cuaternario,5px);
+        }
+    }
+}

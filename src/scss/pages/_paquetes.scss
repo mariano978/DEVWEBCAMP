@@ -5,11 +5,16 @@
   @include m.contenedor;
   &__grid {
     @include m.grid(1, 3rem);
-
+    @include m.contenedor;
     @include m.desktop {
       @include m.grid(3, 3rem);
       align-items: start;
     }
+  }
+
+  &__submit{
+    margin-top: 2rem;
+    @include m.boton(v.$primario,v.$blanco);
   }
 }
 

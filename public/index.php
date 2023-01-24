@@ -2,16 +2,17 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use MVC\Router;
 use Controllers\APIEventos;
 use Controllers\APIPonentes;
 use Controllers\AuthController;
-use Controllers\DashboardController;
 use Controllers\EventosController;
 use Controllers\PaginasController;
-use Controllers\PonentesController;
 use Controllers\RegalosController;
+use Controllers\PonentesController;
+use Controllers\RegistroController;
+use Controllers\DashboardController;
 use Controllers\RegistradosController;
-use MVC\Router;
 
 $router = new Router();
 
@@ -68,5 +69,13 @@ $router->get('/', [PaginasController::class, 'index']);
 $router->get('/devwebcamp', [PaginasController::class, 'evento']);
 $router->get('/paquetes', [PaginasController::class, 'paquetes']);
 $router->get('/workshops-conferencias', [PaginasController::class, 'conferencias']);
+
+//registro de usuarios
+$router->get('/finalizar-registro', [RegistroController::class, 'crear']);
+$router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
+$router->get('/boleto', [RegistroController::class, 'boleto']);
+
+//404
+$router->get('/404', [PaginasController::class, 'error']);
 
 $router->comprobarRutas();

@@ -40,10 +40,10 @@ class PaginasController
         }
 
         //obtener total de cada bloque
-        $total['ponentes'] = Ponente::count();  
+        $total['ponentes'] = Ponente::count();
         $total['conferencias'] = Evento::count('categoria_id', 1);
         $total['workshops'] = Evento::count('categoria_id', 2);
-        
+
 
         //todos los ponenetes
         $ponentes = Ponente::all();
@@ -108,6 +108,13 @@ class PaginasController
         $router->render('paginas/conferencias', [
             'titulo' => 'Conferencias & Workshops',
             'eventos' => $eventos_formateado
+        ]);
+    }
+
+    public static function error(Router $router)
+    {
+        $router->render('paginas/error', [
+            'titulo' => 'Página no encontrada'
         ]);
     }
 }
