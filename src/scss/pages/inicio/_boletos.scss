@@ -57,7 +57,7 @@
   &__logo {
     @include m.logo;
     @include m.textoFluido(2rem, 4rem);
-    margin: 2rem !important;
+    margin: 2rem;
   }
 
   &__precio {

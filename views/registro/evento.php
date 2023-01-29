@@ -1,7 +1,7 @@
 <div class="evento swiper-slide">
     <p class="evento__hora"><?php echo $evento->hora->hora; ?></p>
 
-    <div class="evento__informacion">
+    <div class="evento__informacion evento__informacion--nohover">
         <h4 class="evento__nombre"><?php echo $evento->nombre ?></h4>
 
         <div>
@@ -19,5 +19,7 @@
                 <?php echo $evento->ponente->nombre; ?>
             </p>
         </div>
+
+        <button class="evento__agregar" type="button" data-id="<?php echo $evento->id?>">Agregar</button>
     </div>
 </div>
