@@ -116,7 +116,11 @@
 
   &__agregar {
     margin-top: 1rem;
-    @include m.boton(v.$terciario, v.$gris);
+    @include m.boton(v.$terciario, v.$gris); 
+    &:disabled{
+      opacity: 0.5;
+      cursor:not-allowed;
+    }
   }
 
   

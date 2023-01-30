@@ -612,6 +612,10 @@ h3 {
   background-color: #271d2f;
   cursor: pointer;
 }
+.evento__agregar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 .resumen {
   padding: 12rem 0;

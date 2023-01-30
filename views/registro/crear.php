@@ -92,6 +92,7 @@
                             body: datos
                         }).then(respuesta => respuesta.json())
                         .then(resultado => {
+                            console.log(resultado.resultado);
                             if (resultado.resultado) {
                                 actions.redirect('http://localhost:8000/finalizar-registro/conferencias');
                             }
