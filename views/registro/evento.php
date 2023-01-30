@@ -20,6 +20,7 @@
             </p>
         </div>
 
-        <button class="evento__agregar" type="button" data-id="<?php echo $evento->id?>">Agregar</button>
+        <button class="evento__agregar" <?php echo ($evento->disponibles === "0") ? 'disabled' : ''; ?> type="button" data-id="<?php echo $evento->id ?>">
+            <?php echo ($evento->disponibles === "0") ? 'Agotado' : 'Agregar - ' . $evento->disponibles . ' Disponibles'; ?></button>
     </div>
 </div>
