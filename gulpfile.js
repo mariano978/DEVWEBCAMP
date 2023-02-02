@@ -40,27 +40,35 @@ function css() {
   );
 }
 function javascript() {
-  return src(paths.js)
-    .pipe(
-      webpack({
-        mode: "production",
-        entry: "./src/js/app.js",
-        watch: true,
-        module: {
-          rules: [
-            {
-              test: /\.css$/i,
-              use: ["style-loader", "css-loader"],
-            },
-          ],
-        },
-      })
-    )
-    .pipe(sourcemaps.init())
-    .pipe(terser())
-    .pipe(sourcemaps.write("."))
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(dest("./public/build/js"));
+  return (
+    src(paths.js)
+      .pipe(
+        webpack({
+          devtool: "source-map",
+          mode: "production",
+          entry: "./src/js/app.js",
+          watch: true,
+          module: {
+            rules: [
+              {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+              },
+            ],
+          },
+          performance: {
+            hints: false,
+            maxEntrypointSize: 512000,
+            maxAssetSize: 512000,
+          },
+        })
+      )
+      // .pipe(sourcemaps.init())
+      // .pipe(terser())
+      // .pipe(sourcemaps.write("."))
+      // .pipe(rename({ suffix: ".min" }))
+      .pipe(dest("./public/build/js"))
+  );
 }
 
 function imagenes() {

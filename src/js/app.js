@@ -8,3 +8,4 @@ import "./slider.js";
 import "./tilt.js"; 
 import "./snik.js";
 import "./mapa.js";
+import "./registro.js"
