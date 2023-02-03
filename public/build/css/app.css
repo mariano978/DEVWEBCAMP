@@ -315,7 +315,7 @@ html {
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 body {
@@ -1023,6 +1023,9 @@ h3 {
   border: 1px solid rgba(205, 106, 140, 0.25);
   margin-top: 3rem;
 }
+.formulario--conferencias {
+  all: unset;
+}
 .formulario__campo {
   position: relative;
   padding-bottom: 1rem;
@@ -1048,6 +1051,11 @@ h3 {
 .formulario__campo--file:hover {
   background-color: #271d2f;
   cursor: pointer;
+}
+.formulario__campo--conferencias {
+  all: unset;
+  display: block;
+  padding: 0;
 }
 .formulario__texto-file {
   text-transform: uppercase;
@@ -1158,6 +1166,10 @@ h3 {
 .formulario__submit:hover {
   background-color: #c5537a;
   cursor: pointer;
+}
+.formulario__submit--full {
+  display: block;
+  width: 100%;
 }
 .formulario__grid {
   margin-bottom: 1.5rem;
@@ -2020,6 +2032,9 @@ h3 {
     border: 1px solid #372942;
   }
 }
+.registro--tarjetas {
+  position: static;
+}
 .registro__evento {
   padding: 1rem;
   border-radius: 0.5rem;
@@ -2050,6 +2065,10 @@ h3 {
   color: #FFFFFF;
   font-weight: bold;
   margin-bottom: 1rem;
+}
+.registro__texto {
+  text-align: center;
+  color: #FFFFFF;
 }
 .registro__select {
   width: 100%;

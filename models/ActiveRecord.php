@@ -87,10 +87,12 @@ class ActiveRecord
     {
 
         $atributos = $this->atributos();
+
         $sanitizado = [];
         foreach ($atributos as $key => $value) {
-            $sanitizado[$key] = self::$db->escape_string($value);
+            $sanitizado[$key] = ($value === NULL) ? NULL : self::$db->escape_string($value);
         }
+
         return $sanitizado;
     }
 
@@ -192,9 +194,14 @@ class ActiveRecord
         // Insertar en la base de datos
         $query = " INSERT INTO " . static::$tabla . " ( ";
         $query .= join(', ', array_keys($atributos));
-        $query .= " ) VALUES (' ";
-        $query .= join("', '", array_values($atributos));
-        $query .= "')";
+        $query .= " ) VALUES (";
+        foreach ($atributos as $atributo) {
+            $query .= ($atributo === NULL) ? "NULL" : ("'" . $atributo . "'");
+            $query .= ", ";
+        }
+        //quito la ultima ,
+        $query = rtrim($query, ", ");
+        $query .= ")";
 
         //debuguear($query); // Descomentar si no te funciona algo
 

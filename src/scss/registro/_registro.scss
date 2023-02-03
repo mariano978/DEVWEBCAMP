@@ -64,6 +64,11 @@
     border: 1px solid v.$terciario;
   }
 
+  &--tarjetas {
+    position: static;
+    
+  }
+
   &__evento {
     padding: 1rem;
     border-radius: 0.5rem;
@@ -99,6 +104,11 @@
     margin-bottom: 1rem;
   }
 
+  &__texto {
+    text-align: center;
+    color: v.$blanco;
+  }
+
   &__select {
     width: 100%;
     text-align: center;
@@ -108,6 +118,5 @@
     border: none;
     color: v.$blanco;
     border: 1px solid v.$terciario;
-
   }
 }

@@ -11,6 +11,10 @@
   //@include m.brilloNeon(v.$secundario);
   margin-top: 3rem;
 
+  &--conferencias {
+    all: unset;
+  }
+
   &__campo {
     position: relative;
     padding-bottom: 1rem;
@@ -22,7 +26,14 @@
       height: 4rem;
       display: flex;
     }
-  } //campo
+
+    &--conferencias {
+      all: unset;
+      display: block;
+      
+      padding: 0;
+    }
+  } //campos
 
   &__texto-file {
     text-transform: uppercase;
@@ -111,7 +122,7 @@
       color: v.$blanco;
       text-align: left;
       margin: auto;
-     
+
       font-weight: bold;
       font-size: 1.6rem;
       display: block;
@@ -138,6 +149,10 @@
   &__submit {
     margin-top: 2rem;
     @include m.boton(v.$primario, v.$fondo);
+    &--full {
+      display: block;
+      width: 100%;
+    }
   }
 
   &__grid {

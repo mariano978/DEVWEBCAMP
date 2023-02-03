@@ -41,11 +41,17 @@
         <div class="registro__regalo">
             <label for="regalo" class="registro__label">Selecciona un regalo</label>
             <select id="regalo" class="registro__select">
-                <option selected disabled>-- Selecciona tu regalo --</option>
+                <option selected disabled value="">-- Selecciona tu regalo --</option>
                 <?php foreach ($regalos as $regalo) : ?>
                     <option value="<?php echo $regalo->id; ?>"><?php echo $regalo->nombre; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
+
+        <form id="registro" class="formulario formulario--conferencias">
+            <div class="formulario__campo formulario__campo--conferencias">
+                <input type="submit" class="formulario__submit formulario__submit--full" value="Registrarme">
+            </div>
+        </form>
     </aside>
 </div>
