@@ -252,6 +252,7 @@ class ActiveRecord
         return $resultado;
     }
 
+    //devuelve cuantos registros hay en una columna
     public static function count($columna = "", $valor = "")
     {
         $query = 'SELECT COUNT(*) FROM ' . static::$tabla;
@@ -259,6 +260,24 @@ class ActiveRecord
         if ($columna) {
             $query .= " WHERE ${columna} = ${valor}";
         }
+        $resultado = self::$db->query($query);
+        $total = $resultado->fetch_array()[0];
+        return $total;
+    }
+
+    //total de registros con un array where
+    public static function countArray($array = [])
+    {
+        $query = "SELECT COUNT(*) FROM " . static::$tabla . " WHERE ";
+        $lastKey = array_key_last($array);
+        foreach ($array as $key => $value) {
+            if ($lastKey === $key) {
+                $query .= " ${key} = '${value}'";
+            } else {
+                $query .= " ${key} = '${value}' AND";
+            }
+        }
+        //debuguear($query);
         $resultado = self::$db->query($query);
         $total = $resultado->fetch_array()[0];
         return $total;

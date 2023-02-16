@@ -123,4 +123,10 @@
   &__formulario{
     @include m.contenedor-mm;
   }
+
+  &__grafica{
+    @include m.contenedor-mm;
+    background-color: v.$blanco;
+    border-radius: 1rem;
+  }
 }

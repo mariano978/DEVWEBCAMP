@@ -1780,6 +1780,12 @@ h3 {
   width: min(95%, 70rem);
   margin: 0 auto;
 }
+.dashboard__grafica {
+  width: min(95%, 70rem);
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+}
 
 .table {
   margin-top: 3rem;
