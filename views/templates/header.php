@@ -4,6 +4,8 @@
             <?php if (is_auth()) : ?>
                 <?php if (is_admin()) : ?>
                     <a href="/admin/dashboard" class="header__enlace">Administrar</a>
+                <?php else : ?>
+                    <a href="/finalizar-registro/conferencias" class="header__enlace">Administrar</a>
                 <?php endif; ?>
                 <form action="/logout" class="dashboard__form" method="POST">
                     <input type="submit" value="Cerrar Sesión" class="dashboard__submit--logout">

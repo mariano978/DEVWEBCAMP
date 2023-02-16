@@ -7,6 +7,7 @@
   @include m.tablet {
     display: flex;
     gap: 2rem;
+    align-items: flex-start;
   }
 
   &__listado {
@@ -24,14 +25,98 @@
   }
 
   &__heading {
-    &--conferencias {
+    &--workshops {
       color: v.$primario;
+    }
+    &--conferencias {
+      color: v.$cuaternario;
+    }
+    &--workshops,
+    &--conferencias {
       white-space: nowrap;
       @include m.textoFluido(2rem, 5rem);
+    }
+  }
+
+  &__fecha {
+    font-weight: bold;
+    font-size: 2.3rem;
+    text-align: center;
+    margin-top: 3rem;
+    border-top: 1px solid v.$secundario;
+    padding: 3rem;
+    &:nth-of-type(1),
+    &:nth-of-type(3) {
+      border-top: none;
     }
   }
 }
 
 .registro {
-  flex: 0 0 40%;
+  @include m.tablet {
+    flex: 0 0 40%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 3rem;
+    background-color: #201929;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: 1px solid v.$terciario;
+  }
+
+  &--tarjetas {
+    position: static;
+    
+  }
+
+  &__evento {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid v.$terciario;
+  }
+  &__nombre {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: lighten(#682b67, 15%);
+  }
+
+  &__eliminar {
+    all: unset;
+    color: v.$blanco;
+    cursor: pointer;
+  }
+
+  &__regalo {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__label {
+    display: block;
+    text-align: center;
+    color: v.$blanco;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  &__texto {
+    text-align: center;
+    color: v.$blanco;
+  }
+
+  &__select {
+    width: 100%;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: #201929;
+    border: none;
+    color: v.$blanco;
+    border: 1px solid v.$terciario;
+  }
 }
