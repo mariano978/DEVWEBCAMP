@@ -28,7 +28,6 @@
         </main>
     </div>
 
-
     <script src="/build/js/main.min.js" defer></script>
 </body>
 
